@@ -1,20 +1,33 @@
-const express = require("express");
-const cors = require("cors");
+const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const connectDB = require('./config/db');
+
 const app = express();
+
+require('dotenv').config();
+
+// Middleware
+app.use(cors());
 app.use(express.json());
 app.use(cors({
     origin: '*',
     optionsSuccessStatus: 200
   }))
 
-app.get("/",async(req,res)=>{
-    try{
-        return res.status(200).json({status:"success", message:"lead app testing"})
-    }catch(error){
-        return res.status(500).json({status:"failure", message:error.message})
-    }
-})
+// Routes
+const leadRoutes = require('./routes/leadRoutes');
+app.use('/api', leadRoutes);
 
-app.listen(8000,()=>{
-    console.log("running on port 8000");
-})
+const PORT = process.env.PORT || 8000;
+app.listen(PORT, () => {
+    try{
+        console.log(`Server running on port ${PORT}`);
+        connectDB();
+    }catch(error){
+        console.log('error: ', error);
+    }
+});
+
+
+

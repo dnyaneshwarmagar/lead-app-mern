@@ -1,27 +1,17 @@
-import { useEffect, useState } from "react";
+import React from "react";
+import { BrowserRouter as Router, Route, Routes, Outlet } from "react-router-dom";
+import LeadForm from "./components/LeadForm";
+import LeadTable from "./components/LeadTable";
+import Navbar from "./components/Navbar";
 
-import "./App.css";
+const App = () => (
 
-function App() {
-  const [data, setData] = useState([]);
+    <div className="App">
+      <Navbar/>
+      <h1>Lead Management System</h1>
+      <Outlet/>
 
-  useEffect(() => {
-    fetch("https://lead-app-mern.vercel.app")
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
-
-  return <>
-
-  <h1>{data?.status}</h1>
-  <h1>{data?.message}</h1>
-
-  </>;
-}
+    </div>
+);
 
 export default App;
