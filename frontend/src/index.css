@@ -6,16 +6,17 @@ body {
 }
 
 .App {
-  max-width: 800px;
-  margin: 20px auto;
+  /* max-width: 1200px; */
+  margin: 20px;
   padding: 20px;
   background: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .navbar {
-  background: #007bff;
-  padding: 10px;
+  background: #86b0de;
+  padding: 5px ;
+  display: flex;
 }
 
 .navbar ul {
@@ -23,10 +24,12 @@ body {
   padding: 0;
   margin: 0;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .navbar li {
-  margin-right: 20px;
+  margin: 10px;
 }
 
 .navbar a {
@@ -48,6 +51,7 @@ body {
   margin-bottom: 10px;
   padding: 10px;
   font-size: 16px;
+  box-sizing: border-box;
 }
 
 .lead-form button {
@@ -62,14 +66,21 @@ body {
   cursor: not-allowed;
 }
 
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
+  margin-bottom: 20px;
 }
 
 table th, table td {
   padding: 10px;
   border: 1px solid #ddd;
+  text-align: left;
 }
 
 table th {
@@ -82,4 +93,39 @@ input[type="text"], input[type="email"] {
   margin-bottom: 10px;
   width: 100%;
   box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .App {
+    padding: 10px;
+  }
+
+  .lead-form input, .lead-form button {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  table th, table td {
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar li {
+    margin: 5px 0;
+  }
+
+  .lead-form input, .lead-form button {
+    padding: 6px;
+    font-size: 12px;
+  }
+
+  table th, table td {
+    padding: 6px;
+  }
 }

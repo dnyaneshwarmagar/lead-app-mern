@@ -1,3 +1,3 @@
-const NODE_APP_API_URL = "http://localhost:8000/api";
+const NODE_APP_API_URL = "https://lead-app-mern.vercel.app/api";
 
 export default NODE_APP_API_URL;
