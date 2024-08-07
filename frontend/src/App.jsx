@@ -6,7 +6,7 @@ function App() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("https://login-app-mern.vercel.app/")
+    fetch("https://lead-app-mern.vercel.app")
       .then((res) => res.json())
       .then((data) => {
         setData(data);
@@ -17,6 +17,7 @@ function App() {
   }, []);
 
   return <>
+
   <h1>{data?.status}</h1>
   <h1>{data?.message}</h1>
 
