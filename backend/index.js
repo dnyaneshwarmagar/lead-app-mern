@@ -4,11 +4,11 @@ const bodyParser = require('body-parser');
 const connectDB = require('./config/db');
 
 const app = express();
-
 require('dotenv').config();
 
+connectDB();
+
 // Middleware
-app.use(cors());
 app.use(express.json());
 app.use(cors({
     origin: '*',
@@ -23,7 +23,7 @@ const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
     try{
         console.log(`Server running on port ${PORT}`);
-        connectDB();
+       
     }catch(error){
         console.log('error: ', error);
     }
