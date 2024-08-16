@@ -17,7 +17,16 @@ app.use(cors({
 
 // Routes
 const leadRoutes = require('./routes/leadRoutes');
+const userModel = require('./models/User');
 app.use('/api', leadRoutes);
+app.get('/',async(req,res)=>{
+    try{
+        const users = await userModel.find();
+        return res.status(200).send(users)
+    }catch(err){
+        return res.status(500).send(err.message)
+    }
+})
 
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
