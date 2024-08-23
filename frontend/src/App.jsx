@@ -8,7 +8,7 @@ const App = () => (
 
     <div className="App">
       <Navbar/>
-      <h1>Lead Management System</h1>
+      <h1 style={{fontFamily: "New Amsterdam, sans-serif"}}>Lead Management System</h1>
       <Outlet/>
 
     </div>

@@ -57,6 +57,11 @@ const LeadTable = ({ onEdit, reload }) => {
 
   const handleDelete = async (id) => {
     setLoading(true);
+    confirm("Are you sure , you want to delete this file",(ans)=>{
+      if(ans === false){
+        return
+      }
+    })
     try {
       await axios.delete(`${NODE_APP_API_URL}/leads/${id}`);
       fetchLeads();

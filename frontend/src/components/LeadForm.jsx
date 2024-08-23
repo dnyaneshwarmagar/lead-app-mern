@@ -40,7 +40,7 @@ const LeadForm = () => {
     e.preventDefault();
     setLoading(true);
     setError('');
-
+    
     try {
       const leadData = { name, email, number, products: products.split(',').map(p => p.trim()) };
       if (id) {
@@ -50,6 +50,7 @@ const LeadForm = () => {
         await axios.post(`${NODE_APP_API_URL}/leads`, leadData);
       }
       setLoading(false);
+      alert("Updated Successfully!")
       navigate('/');
     } catch (error) {
       setLoading(false);
